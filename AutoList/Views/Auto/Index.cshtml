@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Auto>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Model</th>
+            <th>Color</th>
+            <th>Body Type</th>
+            <th>Year</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var auto in Model)
+        {
+            <tr>
+                <th>@auto.Id</th>
+                <td>@auto.Model</td>
+                <td>@auto.Color</td>
+                <td>@auto.BodyType</td>
+                <td>@auto.Year</td>
+                <td>
+                    <a asp-controller="Auto" asp-action="Details" asp-route-id="@auto.Id">Details</a>
+                    <a asp-controller="Auto" asp-action="Delete" asp-route-id="@auto.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
